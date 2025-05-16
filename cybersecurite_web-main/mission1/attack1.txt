@@ -1,0 +1,8 @@
+Lancer la page de login , on ouvre index.php le but c’est de se connecter
+‘ OR 1=1 ; -- de base, ou ‘ OR 1=1 ; # (selon la version)
+Ca va se lancer sur le index de XAMPP pb de redirection
+Ctrl F dans le code chercher « form » à la place du / on met tt le chemin vers index mission1/index.php
+
+Soucis mysqli → on lance php dans le powershell (verif doss php dans xamp)
+./php.exe
+Dans variable d’environnement, modifier, path, modifier/nouveau, je mets le chemin C:/xampp/php

